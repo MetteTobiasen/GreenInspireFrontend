@@ -34,7 +34,7 @@ body, html {
   box-sizing: border-box;
 }
 .bg-img {
-background-image: url('C:\Users\Tobia\OneDrive\Zealand\Hovedopgave\Billeder til Newsfeed\forests.jpg');
+background-image: url('@/assets/images/forest.jpg');
 
   min-height: 380px;
 

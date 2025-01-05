@@ -1,8 +1,8 @@
 <template>
   <div class="sidenav">
     <div>
-      <div class="logo">
-            <img src="C:\Users\Tobia\OneDrive\Skrivebord\circle_cropped_logo.png" alt="logo" />
+      <div class="logo"><img src="C:\Users\Tobia\OneDrive\Zealand\Hovedopgave\Logoer\logoForslag12.png" alt="logo" />
+            
         </div>
             <router-link class="button" to="/hjem">
                 <span class="material-icons">home</span>
@@ -35,11 +35,9 @@ body {
 }
 
 .logo{
-  margin-bottom: 2rem;
   display: flex;
   /* align-items: center;  */
-  padding: 1rem;   
-  margin-left: 1rem;
+   
 }
 
 .sidenav {

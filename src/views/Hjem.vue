@@ -31,6 +31,7 @@
   margin: auto;
   text-align: center;
   font-family: arial;
+  margin-bottom: 2rem;
 }
 
 .text {
