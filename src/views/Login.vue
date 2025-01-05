@@ -1,6 +1,87 @@
 <template>
     <main class="login-page">
-        <h1>Login</h1>
-        <p>This is the login page</p>
-    </main>
+        <div class="bg-img"> 
+  <form action="/action_page.php" class="container">
+    <h2 class="headline">Login</h2>
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <button type="submit" class="btn">Log ind</button>
+    <button type="submit" class="btn">Registrer</button>
+  </form>
+</div>
+
+</main>
+
 </template>
+
+<style>
+body, html {
+  height: 100%;
+  font-family: "Montserrat", serif;
+}
+
+.headline {
+  text-align: left;
+  margin-bottom: 2rem;
+}   
+
+* {
+  box-sizing: border-box;
+}
+.bg-img {
+background-image: url('C:\Users\Tobia\OneDrive\Zealand\Hovedopgave\Billeder til Newsfeed\forests.jpg');
+
+  min-height: 380px;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+/* Add styles to the form container */
+.container {
+  position: absolute;
+  right: 0;
+  margin: 20px;
+  max-width: 300px;
+  padding: 16px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit button */
+.btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+  margin-bottom: 1rem;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+</style>
