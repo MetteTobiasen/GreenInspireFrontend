@@ -23,6 +23,8 @@
 body, html {
   height: 100%;
   font-family: "Montserrat", serif;
+  margin-right: 15rem;
+  margin-top: 2rem;
 }
 
 .headline {
@@ -32,9 +34,11 @@ body, html {
 
 * {
   box-sizing: border-box;
+  
+  
 }
 .bg-img {
-background-image: url('@/assets/images/forest.jpg');
+background-image: url('@/assets/Images/forests.jpg');
 
   min-height: 380px;
 
