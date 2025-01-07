@@ -30,7 +30,8 @@ import Card from './components/Card.vue'
 }
 
 body {
-  background-color: var(--light);
+  // background-color: var(--light);
+  
 }
 
 button

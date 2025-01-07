@@ -37,6 +37,12 @@ body, html {
   
   
 }
+.container {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.container {
+  border: 1px solid black;
+} 
 .bg-img {
 background-image: url('@/assets/Images/forests.jpg');
 
@@ -56,7 +62,7 @@ background-image: url('@/assets/Images/forests.jpg');
   margin: 20px;
   max-width: 300px;
   padding: 16px;
-  background-color: white;
+  background-color: rgb(254, 254, 254);
 }
 
 /* Full-width input fields */
