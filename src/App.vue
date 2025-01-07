@@ -8,6 +8,7 @@
 
 <script setup>  
 import Sidebar from './components/Sidebar.vue'
+import Card from './components/Card.vue'
 </script>
 
 <style lang="scss">

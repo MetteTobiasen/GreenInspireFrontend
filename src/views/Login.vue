@@ -75,7 +75,7 @@ input[type=text]:focus, input[type=password]:focus {
 
 /* Set a style for the submit button */
 .btn {
-  background-color: #04AA6D;
+  background-color: #51bd95;
   color: white;
   padding: 16px 20px;
   border: none;

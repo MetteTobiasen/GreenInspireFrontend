@@ -1,6 +1,6 @@
 <template>
 <h3>Contact Form</h3>
-<div class="container">
+<div class="column">
   <form v-on:submit="submitForm"> 
     <div class="overskrift">
       <h2>Opret opslag</h2>
@@ -23,9 +23,8 @@
     </option>
     </select>
     
-
     <label for="titel">Titel</label>
-    <input type="text" id="titel" name="title" placeholder="Titel på opslag..">
+    <input class="titel" type="text" id="titel" name="title" placeholder="Titel på opslag..">
 
     <label for="description">Beskrivelse</label>
     <textarea id="description" name="description" placeholder="Skriv din beskrivelse her.." style="height:200px"></textarea>
@@ -138,9 +137,8 @@ body {
 }
 
 *{
-    box-sizing: border-box;
-    
-}
+    box-sizing: border-box;    
+} 
 
 .overskrift {
   text-align: center;
@@ -150,7 +148,7 @@ body {
 input[type=text], select, textarea {
   width: 100%;
   padding: 12px;
-  border: 1px solid #ccc;
+  border: 1px solid #e6e2e2;
   border-radius: 4px;
   box-sizing: border-box;
   margin-top: 6px;
@@ -158,9 +156,11 @@ input[type=text], select, textarea {
   resize: vertical;
 }
 
+
+
 input[type=submit] {
-  background-color: #04AA6D;
-  color: white;
+  background-color: #51bd95;
+  color: rgb(0, 0, 0);
   padding: 12px 20px;
   border: none;
   border-radius: 4px;
@@ -168,13 +168,11 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-  background-color: #45a049;
+  background-color: #5edbad;
 }
 
-.container {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-  margin-right: 50rem;
-} 
+.column {
+  margin-left: 20rem;
+}
+
 </style>
