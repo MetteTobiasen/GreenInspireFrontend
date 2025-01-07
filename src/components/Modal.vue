@@ -46,6 +46,7 @@ export default {
 </script>
 
 <style>
+
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -58,6 +59,14 @@ export default {
     align-items: center;
 }
 
+/* .modal-overlay {
+    padding: 20px;
+} */
+
+.modal-content {
+    max-width: 400px;
+    width: 100%;
+}
 .modal-content {
     background: white;
     padding: 20px;

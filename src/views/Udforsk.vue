@@ -77,9 +77,15 @@ body {
   font-family: "Montserrat", serif;
 }
 .modal img {
-  max-width: 20%;
+  max-width: 100%;
   height: auto;
 
+}
+.modal {
+  max-width: 80%; /* Adjust this value as needed */
+  margin: auto;
+  padding: 20px;
+  border-radius: 10px;
 }
 .udforsk-page .card {
   max-height: 350px; /* Adjust this value as needed */
