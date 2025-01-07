@@ -1,8 +1,8 @@
 <template>
   <div class="sidenav">
     <div>
-      <div class="logo">
-            <img src="../assets/logo.svg" alt="logo" />
+      <div class="logo"><img src="C:\Users\Tobia\OneDrive\Zealand\Hovedopgave\Logoer\logoForslag12.png" alt="logo" />
+            
         </div>
             <router-link class="button" to="/hjem">
                 <span class="material-icons">home</span>
@@ -20,6 +20,10 @@
                 <span class="material-icons">account_circle</span>
                 <span class="text">Profil</span>
             </router-link>
+            <router-link class="button" to="/opret">
+                <span class="material-icons">add_circle</span>
+                <span class="text">Opret</span>
+            </router-link>
         </div>
   </div>
 </template>
@@ -31,11 +35,9 @@ body {
 }
 
 .logo{
-  margin-bottom: 2rem;
   display: flex;
   /* align-items: center;  */
-  padding: 1rem;   
-  margin-left: 1rem;
+   
 }
 
 .sidenav {

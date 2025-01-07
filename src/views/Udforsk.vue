@@ -1,6 +1,164 @@
 <template>
     <main class="udforsk-page">
-        <h1>Udforsk</h1>
-        <p>This is the udforsk page</p>
+        <div class="container">
+            <div class="row">
+                <div v-for="news in newsfeed" :key="news.id" class="column">
+                    <Card :title="news.title" :content="news.content" />
+                </div>
+            </div>
+        </div>
     </main>
 </template>
+
+<script>
+
+import Card from '../components/Card.vue';
+
+export default {
+    components: {
+        Card
+    },
+    data() {
+        return {
+            newsfeed: []
+        };
+    },
+    created() {
+        this.fetchNewsfeed();
+    },
+    methods: {
+        async fetchNewsfeed() {
+            try {
+                const response = await axios.get('https://api.example.com/newsfeed');
+                this.newsfeed = response.data;
+            } catch (error) {
+                console.error('Error fetching newsfeed:', error);
+            }
+        }
+    }
+};
+</script>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.column {
+    float: left;
+    width: 100%;
+    padding: 0 10px;
+    margin-bottom: 20px;
+}
+
+.row {
+    margin: 0 -5px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+}
+</style>
+
+
+
+
+
+<!-- <template>
+    <main class="udforsk-page">
+        <div class="container">
+            <div class="row">
+  <div class="column">
+    <div class="card">
+      <h3>Card 1</h3>
+      <p>Some text</p>
+      <p>Some text</p>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <h3>Card 2</h3>
+      <p>Some text</p>
+      <p>Some text</p>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <h3>Card 3</h3>
+      <p>Some text</p>
+      <p>Some text</p>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <h3>Card 3</h3>
+      <p>Some text</p>
+      <p>Some text</p>
+    </div>
+  </div>
+  
+</div>
+</div>
+    </main>
+</template>
+
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+</style> -->

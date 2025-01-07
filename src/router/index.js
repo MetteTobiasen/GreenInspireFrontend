@@ -23,8 +23,12 @@ const router = createRouter({
         {
             path: '/profil',
             component: () => import('../views/Profil.vue')
+        },  
+        {
+            path: '/opret',
+            component: () => import('../views/Opret.vue')
         }
-        
+
     ]
 })
 
