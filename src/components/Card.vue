@@ -4,12 +4,12 @@
       <br><br>
       <h3 style="text-align:center">{{ category }}</h3>
           <br><br>
-          <img src="" alt="John" style="width:90%">
+            <img src="C:\Users\Tobia\OneDrive\Zealand\Visual code\GreenInspire\src\assets\Images\Co2Neutral.webp" alt="" style="width:90%">
           <br><br>
           <h2>{{ title }}</h2>
           <br><br>
           <p class="text">{{ description }}</p>
-          <br><br>
+          <br><br>  
           <p>{{ companyName }}</p>
           <br><br>
         <!-- <div class="card-category">{{ category }}</div>
