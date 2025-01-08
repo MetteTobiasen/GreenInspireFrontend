@@ -14,9 +14,7 @@
     <button type="submit" class="btn">Registrer</button>
   </form>
 </div>
-
 </main>
-
 </template>
 
 <style>
