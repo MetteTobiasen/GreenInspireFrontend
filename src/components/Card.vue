@@ -2,7 +2,7 @@
   <div class="column" style="width: 70%">
     <div class="card">
       <h4 Class="category" style="text-align:center">{{ category }}</h4>
-            <img src="C:\Users\Tobia\OneDrive\Zealand\Visual code\GreenInspire\src\assets\Images\Co2Neutral.webp" alt="" style="width:90%">
+            <img src="C:\Users\Tobia\OneDrive\Zealand\Hovedopgave\BillederNewsfeed\Co2Neutral.webp" alt="" style="width:90%">
           <br><br>
           <h3 class="title">{{ title }}</h3>
           <!-- <br><br> -->
