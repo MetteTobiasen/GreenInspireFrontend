@@ -1,7 +1,7 @@
 <template>
   <div class="sidenav">
     <div>
-      <div class="logo"><img src="C:\Users\Tobia\OneDrive\Zealand\Hovedopgave\Logoer\logoForslag12.png" alt="logo" />
+      <div class="logo"><img src="C:\Users\Tobia\OneDrive\Zealand\Hovedopgave\Logoer\logoForslag9.png" alt="logo" />
             
         </div>
             <router-link class="button" to="/hjem">
@@ -37,9 +37,21 @@ body {
 .logo{
   display: flex;
   /* align-items: center;  */
-   
 }
 
+img {
+    max-width: 140px;
+    height: auto;
+  }
+  .sidenav::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1px;
+    height: 100%;
+    background-color: black;
+  }
 .sidenav {
   height: 100%; 
   display: flex;
@@ -62,7 +74,7 @@ body {
 .sidenav a {
   padding: 6px 8px 6px 16px; 
   text-decoration: none;
-  font-size: 25px;
+  font-size: 16px;
   color: #131212;
   display: block;
   align-items: center;

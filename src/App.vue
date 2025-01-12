@@ -8,17 +8,18 @@
 
 <script setup>  
 import Sidebar from './components/Sidebar.vue'
+import Card from './components/Card.vue'
 </script>
 
 <style lang="scss">
  :root{
-     --primary: #4ade80;
-     --primary-alt: #22c55e;
+    //  --primary: #4ade80;
+    //  --primary-alt: #22c55e;
      --grey: #64748b;
      --dark: #1e293b;
      --dark-alt: #334155;
      --light: #f1f5f9;
-     --sidebar-width: 200px;
+      --sidebar-width: 200px;
 }
 
 * {
@@ -28,9 +29,10 @@ import Sidebar from './components/Sidebar.vue'
   font-family: "Montserrat", serif;
 }
 
-body {
-  background-color: var(--light);
-}
+// body {
+  // background-color: var(--light);
+  
+// }
 
 button
 {

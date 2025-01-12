@@ -1,13 +1,15 @@
 <template>
+  <div class="column" style="width: 70%">
     <div class="card">
-        <div class="card-category">{{ category }}</div>
-        <img :src="imageSrc" alt="Card Image" class="card-image" />
-        <div class="card-content">
-            <h3 class="card-title">{{ title }}</h3>
-            <p class="card-text">{{ description }}</p>
-            <p class="card-profile">By {{ companyName }}</p>
-        </div>
+      <h4 Class="category" style="text-align:center">{{ category }}</h4>
+            <img src="C:\Users\Tobia\OneDrive\Zealand\Hovedopgave\BillederNewsfeed\Co2Neutral.webp" alt="" style="width:90%">
+          <br><br>
+          <h3 class="title">{{ title }}</h3>
+          <!-- <br><br> -->
+          <p class="text" style="text-align:center">{{ description }}</p>
+          <p class="company">{{ companyName }}</p>
     </div>
+  </div>
 </template>
 
 <script>
@@ -36,153 +38,88 @@ export default {
         },
         newsfeedId: {
             type: Number,
-            required: true
+            required: false
         },
-        companyId: {
+            companyId: {
             type: Number,
-            required: true
+            required: false
         }
     }
 };
 </script>
 
 <style scoped>
+
 .card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-width: 300px;
-    margin: 16px;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
+  /* max-width: 50rem; */
+  /* margin: auto; */
+  text-align: center;
+  font-family: "Montserrat", serif;
+  margin-bottom: 2rem;
+  margin-left: 10rem;
+  width: 115%;  
+  padding: 20px;
+  background: #fbfafa;
+border-radius: 0;
+}
+.card {
+  box-shadow: none;
+} 
+.card {
+  border: 1px solid rgb(216, 207, 207);
+} 
+
+img {
+  border: 1px solid rgb(216, 207, 207);
 }
 
-.card-category {
-    background-color: #f4f4f4;
-    color: #555;
-    font-size: 12px;
-    font-weight: bold;
-    text-transform: uppercase;
-    padding: 8px;
-    text-align: center;
+.title {
+  color: rgb(76, 73, 73);
+  border-bottom: 1px solid rgb(216, 207, 207);
+  padding-bottom: 20px;
+}
+.company{
+  margin-top: 10px;
+  font-weight: bold;
+  color: rgb(76, 73, 73);
 }
 
-.card-image {
-    width: 100%;
-    height: auto;
-    display: block;
+.category{
+  margin-bottom: 15px;
+  color: rgb(76, 73, 73);
+  font-size: 13px;
 }
 
-.card-content {
-    padding: 16px;
+.text {
+  color: rgb(76, 73, 73);
+  font-size: 16px;
+  padding: 10px;
+  margin-top: 10px;
+  border-bottom: 1px solid rgb(216, 207, 207);
+  padding-bottom: 20px;
 }
 
-.card-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin: 0 0 8px;
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
 }
 
-.card-text {
-    font-size: 14px;
-    color: #666;
-    margin: 0 0 12px;
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: rgb(22, 22, 22);
 }
 
-.card-profile {
-    font-size: 12px;
-    color: #999;
+button:hover, a:hover {
+  opacity: 0.7;
 }
 </style>
-
-<!-- <</template>template>
-    <div class="card">
-      <div class="card-category">{{ category }}</div>
-      <img :src="imageSrc" alt="Card Image" class="card-image" />
-      <div class="card-content">
-        <h3 class="card-title">{{ title }}</h3>
-        <p class="card-text">{{ description }}</p>
-        <p class="card-profile">By {{ companyName }}</p>
-      </div>
-    </div>
-  </template>
-  
-  <script>
-  export default {
-    name: "Card",
-    props: {
-      category: {
-        type: String,
-        required: true
-      },
-      imageSrc: {
-        type: String, 
-        required: true
-      },
-      title: {
-        type: String,
-        required: true
-      },
-      description: {
-        type: String,
-        required: true
-      },
-      companyName: {
-        type: String,
-        required: true
-      },
-      companyId: {
-        type: Number,
-        required: true
-      }
-    }
-  };
-  </script>
-  
-  <style scoped>
-  .card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-width: 300px;
-    margin: 16px;
-  }
-  
-  .card-category {
-    background-color: #f4f4f4;
-    color: #555;
-    font-size: 12px;
-    font-weight: bold;
-    text-transform: uppercase;
-    padding: 8px;
-    text-align: center;
-  }
-  
-  .card-image {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  
-  .card-content {
-    padding: 16px;
-  }
-  
-  .card-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin: 0 0 8px;
-  }
-  
-  .card-text {
-    font-size: 14px;
-    color: #666;
-    margin: 0 0 12px;
-  }
-  
-  .card-profile {
-    font-size: 12px;
-    color: #999;
-  }
-  </style>
-   -->

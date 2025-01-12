@@ -14,17 +14,19 @@
     <button type="submit" class="btn">Registrer</button>
   </form>
 </div>
-
 </main>
-
 </template>
 
 <style>
 body, html {
   height: 100%;
   font-family: "Montserrat", serif;
-  margin-right: 15rem;
+  margin-right: 18rem;
   margin-top: 2rem;
+}
+/* Hide the sidebar */
+.sidebar {
+  display: none;
 }
 
 .headline {
@@ -37,6 +39,13 @@ body, html {
   
   
 }
+.container {
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  box-shadow: none;
+}
+.container {
+  border: 1px solid rgb(206, 197, 197);
+} 
 .bg-img {
 background-image: url('@/assets/Images/forests.jpg');
 
@@ -53,10 +62,10 @@ background-image: url('@/assets/Images/forests.jpg');
 .container {
   position: absolute;
   right: 0;
-  margin: 20px;
+  margin: 10px;
   max-width: 300px;
   padding: 16px;
-  background-color: white;
+  background-color: rgb(254, 254, 254); 
 }
 
 /* Full-width input fields */
@@ -75,7 +84,7 @@ input[type=text]:focus, input[type=password]:focus {
 
 /* Set a style for the submit button */
 .btn {
-  background-color: #04AA6D;
+  background-color: #51bd95;
   color: white;
   padding: 16px 20px;
   border: none;

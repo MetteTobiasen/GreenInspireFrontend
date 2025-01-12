@@ -1,6 +1,6 @@
 <template>
 <h3>Contact Form</h3>
-<div class="container">
+<div class="column">
   <form v-on:submit="submitForm"> 
     <div class="overskrift">
       <h2>Opret opslag</h2>
@@ -8,32 +8,30 @@
 
     <label for="companyId">Id</label>
     <!-- <input type="number" id="companyId" name="companyId" placeholder="Firma id.."> -->
-    <select name="companyId" id="companyId">
-    <option value="" selected="selected">Vælg firma id</option>
+    <select name="companyId" id="companyId" v-model="companyId">
+    <option value="" selected="selectedId">Vælg firma id</option>
     <option v-for="companyUser in companyUserList" :key="companyUser.id" :value="companyUser.id">
       {{ companyUser.companyName }}
     </option>
     </select>
     <label for="category">Kategori</label>
     <!-- <input type="text" id="category" name="category" placeholder="Vælg kategori.."> -->
-    <select name="subject" id="subject">
-    <option value="" selected="selected">Vælg kategori</option>
-    <option v-for="category in categoryList" :key="category.id" :value="category.id">
+    <select name="subject" id="subject" v-model="selectedCategory"> 
+    <option value="" selected="selectedCategory">Vælg kategori</option> 
+    <option v-for="category in categoryList" :key="category.id" :value="category.id"> 
       {{ category.categoryName }}
     </option>
     </select>
     
-
     <label for="titel">Titel</label>
-    <input type="text" id="titel" name="title" placeholder="Titel på opslag..">
+    <input class="titel" type="text" id="titel" name="title" placeholder="Titel på opslag..">
 
     <label for="description">Beskrivelse</label>
     <textarea id="description" name="description" placeholder="Skriv din beskrivelse her.." style="height:200px"></textarea>
 
     <label for="img">Billede</label>
     <input type="text" id="img" name="image" placeholder="Vælg billede..">
-
-    <input type="submit" value="Submit"> 
+    <input type="submit" value="Opret" @click.prevent="submitForm">
   </form>
 </div>
 </template>
@@ -56,12 +54,14 @@ export default {
         return {
             category: '',
             img: '',
-            titel: '',
-            subject: '',
+            title: '',
+            description: '',
             companyId: '',
             companyUserList: [],  
             categoryList: [],
-            selectedCategory: ''     
+            selectedCategory: "",
+            selectedId: '',
+            subject: ''
         };
     },
     methods:
@@ -98,29 +98,37 @@ export default {
                 console.error('Error fetching company:', error);
             }
         },
-        async getCompanyNameById(id) {
+        async getCategoryIdByName(name) {
             try{
-                const url = baseURL + "/" + id;
+                const url = baseUrlCategory + "/" + "idByName" + "/" + name;
                 const response = await axios.get(url);
-                this.companyUserList = response.data;
-                console.log(this.companyUserList);
+                this.categoryIdForObject = response.data;
+                console.log(response.data);
             }
             catch (error) {
-                console.error('Error fetching company id:', error);
+                console.error('Error fetching category id:', error);
+                throw error;
             }
 
         },
         async submitForm() {
-            const NewNewsfeed = {
+            let NewNewsfeed = {
+              newsfeed: {
                 newsfeedImage: null,
-                titel: this.titel,
-                description: this.subject,
-                companyId: this.companyId
+                title: this.title,
+                description: this.description,
+                companyUserId: this.companyId
+              },
+              category: {
+                categoryId: "",
+                categoryName: this.selectedCategory
+              }
             };
-            const img = this.img;
-            const category =  this.category;
-
-            try {                   
+            try {
+                await this.getCategoryIdByName(this.selectedCategory);
+                this.category.categoryId = this.categoryIdForObject;
+                console.log('categoryId:', categoryIdForObject);
+                NewNewsfeed.category.categoryId = categoryId;
                 const response = await axios.post(baseUrlNewsfeed, NewNewsfeed);                    
                 console.log('Success:', response);                 
             }   
@@ -138,9 +146,8 @@ body {
 }
 
 *{
-    box-sizing: border-box;
-    
-}
+    box-sizing: border-box;    
+} 
 
 .overskrift {
   text-align: center;
@@ -150,7 +157,7 @@ body {
 input[type=text], select, textarea {
   width: 100%;
   padding: 12px;
-  border: 1px solid #ccc;
+  border: 1px solid #e6e2e2;
   border-radius: 4px;
   box-sizing: border-box;
   margin-top: 6px;
@@ -158,9 +165,11 @@ input[type=text], select, textarea {
   resize: vertical;
 }
 
+
+
 input[type=submit] {
-  background-color: #04AA6D;
-  color: white;
+  background-color: #51bd95;
+  color: rgb(0, 0, 0);
   padding: 12px 20px;
   border: none;
   border-radius: 4px;
@@ -168,13 +177,11 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-  background-color: #45a049;
+  background-color: #5edbad;
 }
 
-.container {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-  margin-right: 50rem;
-} 
+.column {
+  margin-left: 20rem;
+}
+
 </style>
