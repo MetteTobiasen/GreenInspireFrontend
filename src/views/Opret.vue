@@ -31,7 +31,7 @@
 
     <label for="img">Billede</label>
     <input type="text" id="img" name="image" placeholder="Vælg billede..">
-    <input type="submit" value="Submit" @click.prevent="submitForm">
+    <input type="submit" value="Opret" @click.prevent="submitForm">
   </form>
 </div>
 </template>

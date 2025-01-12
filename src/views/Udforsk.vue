@@ -10,10 +10,22 @@
       </div>
       <div class="row" >
         <div class="column" v-for="(item, index) in cardList" :key="index" :style="{ width: '33.33%' }">
-          <SmallCard :title="item.title" :description="item.description" :category="item.categoryName" :companyName="item.companyName" @click="openModal(item)"/>
+          <SmallCard 
+          :title="item.title" 
+          :description="item.description" 
+          :category="item.categoryName" 
+          :companyName="item.companyName"
+          @click="openModal(item)"/>
         </div>
       </div>
-        <Modal v-if="showModal" @close="showModal = false" :isVisible="true" :title="selectedCard.title" :description="selectedCard.description" :categoryName="selectedCard.categoryName" :companyName="selectedCard.companyName"/>
+        <Modal 
+        v-if="showModal" 
+        @close="showModal = false" 
+        :isVisible="true" 
+        :title="selectedCard.title" 
+        :description="selectedCard.description" 
+        :categoryName="selectedCard.categoryName" 
+        :companyName="selectedCard.companyName"/>
   </main>
 </template>
 
@@ -60,7 +72,11 @@ export default {
             const url = baseUrlCompany + "/" + newsfeed.companyUserId;
             const companyUser = await axios.get(url);
             this.companyUser = companyUser.data;
-            this.cardList.push({categoryName: newsfeed.categoryName, title: newsfeed.newsfeedTitle, description: newsfeed.newsfeedText, companyName: this.companyUser.companyName});
+            this.cardList.push({
+              categoryName: newsfeed.categoryName, 
+              title: newsfeed.newsfeedTitle, 
+              description: newsfeed.newsfeedText, 
+              companyName: this.companyUser.companyName});
           } else {
             console.error('Error: companyId is undefined for newsfeed:', newsfeed);
           }
@@ -152,7 +168,7 @@ body {
 }
 .search-container button{
   margin-left: 40rem; 
-}
+} 
 
 /* .search-container button {
   float: right;
