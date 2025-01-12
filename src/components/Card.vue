@@ -6,7 +6,7 @@
           <br><br>
           <h3 class="title">{{ title }}</h3>
           <!-- <br><br> -->
-          <p class="text" style="text-align:justify">{{ description }}</p>
+          <p class="text" style="text-align:center">{{ description }}</p>
           <p class="company">{{ companyName }}</p>
     </div>
   </div>
@@ -76,6 +76,8 @@ img {
 
 .title {
   color: rgb(76, 73, 73);
+  border-bottom: 1px solid rgb(216, 207, 207);
+  padding-bottom: 20px;
 }
 .company{
   margin-top: 10px;
@@ -94,6 +96,8 @@ img {
   font-size: 16px;
   padding: 10px;
   margin-top: 10px;
+  border-bottom: 1px solid rgb(216, 207, 207);
+  padding-bottom: 20px;
 }
 
 button {

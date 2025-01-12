@@ -1,16 +1,18 @@
 <template>
     <main class="udforsk-page">
-        <div class="search-container">
-          <form action="/action_page.php">
-            <input type="text" placeholder="Search.." name="search">
-            <button type="submit"><i class="fa fa-search"></i></button>
-          </form>
+      <div class="search-container">
+        <form @submit.prevent="search">
+          <input type="text" v-model="searchQuery" placeholder="Search.." name="search">
+          <button type="submit" style="display: inline-block; vertical-align: middle;">
+            <i class="fa fa-search"></i>
+          </button>
+        </form>
+      </div>
+      <div class="row" >
+        <div class="column" v-for="(item, index) in cardList" :key="index" :style="{ width: '33.33%' }">
+          <SmallCard :title="item.title" :description="item.description" :category="item.categoryName" :companyName="item.companyName" @click="openModal(item)"/>
         </div>
-        <div class="row">
-          <div class="column" style="width: 35%">
-            <SmallCard v-for="(item, index) in cardList" :key="index" :title="item.title" :description="item.description" :category="item.categoryName" :companyName="item.companyName" @click="openModal(item)"/>
-          </div>
-        </div>
+      </div>
         <Modal v-if="showModal" @close="showModal = false" :isVisible="true" :title="selectedCard.title" :description="selectedCard.description" :categoryName="selectedCard.categoryName" :companyName="selectedCard.companyName"/>
   </main>
 </template>
@@ -114,6 +116,44 @@ body {
   padding: 10px;     
 }
 
+.column {
+  float: left;
+  width: 25%;
+  
+}
+.search-container {
+  display: flex;
+  align-items: center;
+}
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px; /* Adjust this value as needed */
+  margin-left: 210px;
+}
+.search-container input[type="text"] {
+  flex: 1;
+  padding: 6px;
+  font-size: 17px;
+  border: 1px solid #ccc;
+}
+
+.search-container button {
+  padding: 6px 10px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.search-container button:hover {
+  background: #ccc;
+}
+.search-container button{
+  margin-left: 40rem; 
+}
+
 /* .search-container button {
   float: right;
   padding: 6px 10px;
@@ -127,12 +167,12 @@ body {
 
 .search-container button:hover {
   background: #ccc;
-}
+} */
 
-@media screen and (max-width: 400px) {
+/* @media screen and (max-width: 400px) {
   .search-container {
     float: none;
-  }
+  } 
   .search-container button {
     float: none;
     display: block;
@@ -144,7 +184,7 @@ body {
   input[type=text] {
     border: 1px solid #ccc;  
   }
-} */
+}  */
 
   /* .topnav {
   overflow: hidden;
@@ -159,17 +199,17 @@ body {
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
-} */
+}   */
 
 /* .topnav a:hover {
   background-color: #ddd;
   color: black;
-} */
+} 
 
-/* .topnav a.active {
+.topnav a.active {
   background-color: #2196F3;
   color: white;
-} */
+}  */
 
 /* .topnav input[type=text] {
   float: right;
@@ -178,9 +218,9 @@ body {
   margin-right: 16px;
   border: none;
   font-size: 17px;
-} */
+}  */
 
-/* @media screen and (max-width: 600px) {
+/* @media screen and (max-width: 600px) { 
   .topnav a, .topnav input[type=text] {
     float: none;
     display: block;
@@ -193,7 +233,7 @@ body {
   .topnav input[type=text] {
     border: 1px solid #ccc;  
   }
-} */
+}  */
 
 </style>
 

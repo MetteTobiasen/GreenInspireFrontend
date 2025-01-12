@@ -64,13 +64,21 @@
 </script>
   
 <style scoped>
-  
+
+.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .card {
+    height: 100%;
+  }
   .card {
     text-align: center;
     font-family: "Montserrat", serif;
     margin-bottom: 2rem;
     margin-left: 10rem;
-    width: 115%;  
+    width: 125%;  
     padding: 20px;
     background: #fbfafa;
   border-radius: 0;
@@ -89,7 +97,9 @@
   .title {
     color: rgb(76, 73, 73);
     font-size: 16px;
+    
   }
+
   .company{
     margin-top: 10px;
     font-weight: bold;
@@ -113,6 +123,7 @@
     .readMore {      
         margin-top: 10px;
         color: rgb(76, 73, 73);
+        border: 1px solid rgb(216, 207, 207);
     }
   
   button {
