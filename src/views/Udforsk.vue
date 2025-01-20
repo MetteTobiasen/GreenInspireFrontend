@@ -47,6 +47,7 @@ export default {
       newsFeedList: [],
       cardList: [],
       companyUser: [],
+      searchQuery: '',
       showModal: false,
       selectedCard: {
         title: '',
@@ -60,7 +61,7 @@ export default {
     openModal(card) {
       this.selectedCard = card;
       this.showModal = true;
-    },
+    }, 
     async getAllNewsfeeds() {
       try{
         const response = await axios.get(baseUrlNewsfeed);
@@ -154,6 +155,26 @@ body {
   background: #ccc;
 }
 
+.udforsk-page .column {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.udforsk-page .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  flex: 1; 
+}
+
+.udforsk-page .card .title {
+  white-space: normal; 
+  min-height: 40px; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
 </style>
 
