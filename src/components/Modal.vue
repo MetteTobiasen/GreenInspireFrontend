@@ -2,7 +2,7 @@
     <div v-if="isVisible" class="modal-overlay" @click="closeModal">
         <div class="modal-content" @click.stop>
             <button class="close-button" @click="closeModal">X</button>
-            <Card :category="categoryName" :title="title" :description="description" :companyName="companyName"/>
+            <Card class="indhold" :category="categoryName" :title="title" :description="description" :companyName="companyName"/>
         </div>
     </div>
 </template>
@@ -49,33 +49,31 @@ export default {
 
 .modal-overlay {
     position: fixed;
-    top: 0;
+    top: 0%;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.5); 
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} 
 
-/* .modal-overlay {
+.modal-overlay .modal-content {
+    width: 400px;
+    height: 500px;
+    background-color: white; 
     padding: 20px;
-} */
+    border-radius: 3px;
+    position: fixed;
+    justify-content: center; 
+}  
 
-.modal-content {
-    max-width: 400px;
-    width: 100%;
+.indhold{
+    
 }
-.modal-content {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    position: relative;
-}
-
 .close-button {
-    position: absolute;
+    position: absolute; 
     top: 10px;
     right: 10px;
     background: none;

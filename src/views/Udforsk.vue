@@ -94,17 +94,7 @@ export default {
 body {
   font-family: "Montserrat", serif;
 }
-.modal img {
-  max-width: 100%;
-  height: auto;
 
-}
-.modal {
-  max-width: 80%; /* Adjust this value as needed */
-  margin: auto;
-  padding: 20px;
-  border-radius: 10px;
-}
 .udforsk-page .card {
   max-height: 350px; /* Adjust this value as needed */
   overflow: hidden;
@@ -135,12 +125,8 @@ body {
 .column {
   float: left;
   width: 25%;
-  
 }
-.search-container {
-  display: flex;
-  align-items: center;
-}
+
 .search-container {
   display: flex;
   justify-content: center;
@@ -161,95 +147,13 @@ body {
   font-size: 17px;
   border: none;
   cursor: pointer;
-}
-
-.search-container button:hover {
-  background: #ccc;
-}
-.search-container button{
   margin-left: 40rem; 
-} 
-
-/* .search-container button {
-  float: right;
-  padding: 6px 10px;
-  margin-top: 8px;
-  margin-right: 16px;
-  background: #ddd;
-  font-size: 17px;
-  border: none;
-  cursor: pointer;
 }
 
 .search-container button:hover {
   background: #ccc;
-} */
+}
 
-/* @media screen and (max-width: 400px) {
-  .search-container {
-    float: none;
-  } 
-  .search-container button {
-    float: none;
-    display: block;
-    text-align: left;
-    width: 100%;
-    margin: 0;
-    padding: 10px;
-  }
-  input[type=text] {
-    border: 1px solid #ccc;  
-  }
-}  */
-
-  /* .topnav {
-  overflow: hidden;
-  background-color: #e9e9e9;
-} */
-
-/* .topnav a {
-  float: left;
-  display: block;
-  color: black;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}   */
-
-/* .topnav a:hover {
-  background-color: #ddd;
-  color: black;
-} 
-
-.topnav a.active {
-  background-color: #2196F3;
-  color: white;
-}  */
-
-/* .topnav input[type=text] {
-  float: right;
-  padding: 6px;
-  margin-top: 8px;
-  margin-right: 16px;
-  border: none;
-  font-size: 17px;
-}  */
-
-/* @media screen and (max-width: 600px) { 
-  .topnav a, .topnav input[type=text] {
-    float: none;
-    display: block;
-    text-align: left;
-    width: 100%;
-    margin: 0;
-    padding: 14px;
-  }
-  
-  .topnav input[type=text] {
-    border: 1px solid #ccc;  
-  }
-}  */
 
 </style>
 
