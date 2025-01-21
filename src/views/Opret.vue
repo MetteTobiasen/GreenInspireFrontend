@@ -137,23 +137,26 @@ export default {
         
         async submitForm() {
             
-            // if (!this.title || !this.description || !this.companyId || !this.categoryId) 
-            // {
-            //   alert("Alle felter skal udfyldes!");
-            //   return;
-            // }
+            if (!this.title || !this.description || !this.companyName || !this.categoryName) 
+            {
+              alert("Alle felter skal udfyldes!");
+              return;
+            }
             
             try {
                 await this.getCategoryIdByName(this.categoryName);
                 await this.getCompanyIdByName(this.companyName);
+                // if (!this.companyIdForObject && !this.categoryIdForObject) {
+                //     alert("Please select a valid company and category.");
+                //     return;
+                // }
                 const NewNewsfeed = {
                     newsfeedId: 0,
                     newsfeedImage: null,
-                    newsfeedTitle: this.title,
+                    title: this.title,
                     newsfeedText: this.description,
                     newsfeedTimestamp: new Date(),
-                    companyUserId: this.companyIdForObject,
-                    categoryId: this.categoryIdForObject
+                    companyUserId: this.companyIdForObject
                 };
                 console.log('category:', NewNewsfeed);
                 const url = baseUrlNewsfeed + "?categoryId=" + this.categoryIdForObject;
