@@ -2,10 +2,10 @@
     <main class="udforsk-page">
       <div class="search-container">
         <form @submit.prevent="search">
-          <input type="text" v-model="searchQuery" placeholder="Search.." name="search">
-          <button type="submit" style="display: inline-block; vertical-align: middle;">
+          <input type="text" v-model="searchQuery" placeholder="Søg.." name="search">
+          <!-- <button type="submit" style="display: inline-block; vertical-align: middle;">
             <i class="fa fa-search"></i>
-          </button>
+          </button> -->
         </form>
       </div>
       <div class="row" >
@@ -128,18 +128,26 @@ body {
   width: 25%;
 }
 
+.row{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+  width: 130%;
+}
+
 .search-container {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 20px; /* Adjust this value as needed */
-  margin-left: 210px;
+  
 }
 .search-container input[type="text"] {
   flex: 1;
   padding: 6px;
   font-size: 17px;
   border: 1px solid #ccc;
+  width: 300%;
 }
 
 .search-container button {
@@ -149,7 +157,7 @@ body {
   border: none;
   cursor: pointer;
   margin-left: 40rem; 
-}
+} 
 
 .search-container button:hover {
   background: #ccc;
