@@ -2,7 +2,7 @@
     <main class="udforsk-page">
       <div class="search-container">
         <form @submit.prevent="search">
-          <input type="text" v-model="searchQuery" placeholder="Søg.." name="search">
+          <input type="text" v-model="searchQuery" placeholder="Søg.." name="search" @input="onSelected($event)">
           <!-- <button type="submit" style="display: inline-block; vertical-align: middle;">
             <i class="fa fa-search"></i>
           </button> -->
@@ -64,7 +64,11 @@ export default {
     }, 
     async getAllNewsfeeds() {
       try{
-        const response = await axios.get(baseUrlNewsfeed);
+        let url = baseUrlNewsfeed;        
+        if (this.searchQuery) {
+          url += "?searchQuery=" + this.searchQuery;
+        }
+        const response = await axios.get(url);
         this.newsfeedList = response.data;
         console.log(this.newsfeedList);
         this.newsfeedList.forEach(async (newsfeed) => 
@@ -73,11 +77,11 @@ export default {
             const url = baseUrlCompany + "/" + newsfeed.companyUserId;
             const companyUser = await axios.get(url);
             this.companyUser = companyUser.data;
-            this.cardList.push({
+            this.cardList = this.newsfeedList.map(newsfeed => ({
               categoryName: newsfeed.categoryName, 
               title: newsfeed.newsfeedTitle, 
               description: newsfeed.newsfeedText, 
-              companyName: this.companyUser.companyName});
+              companyName: this.companyUser.companyName}));
           } else {
             console.error('Error: companyId is undefined for newsfeed:', newsfeed);
           }
@@ -86,7 +90,11 @@ export default {
       catch (error) {
         console.error('Error fetching newsfeeds:', error);
       }
-    }
+    },
+    onSelected:function(event){
+          this.searchQuery = event.target.value;
+            this.getAllNewsfeeds();
+        }
   }
 };
 </script>

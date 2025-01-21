@@ -4,7 +4,6 @@
         <div class="search-container">
         <label class="categoryLabel" for="category">Søg efter kategori</label>
         <select class="form-control" name="selectedCategory" id="selectedCategory" v-model="selectedCategory" @change="onSelected($event)">
-            <!-- <option value="" disabled selected>Vælg kategori</option> -->
             <option v-for="category in categoryList" :key="category.id" :value="category.id">
                 {{ category.categoryName }}
             </option>
