@@ -104,12 +104,17 @@ body {
   font-family: "Montserrat", serif;
 }
 
-.udforsk-page .card {
-  max-height: 350px; /* Adjust this value as needed */
+/* .udforsk-page .card {
+  max-height: 350px; 
   overflow: hidden;
+} */
+
+.udforsk-page{
+  padding: 20px;
 }
 .card .title {
   font-size: 14px; /* Adjust this value as needed */
+  
 }
 .card .description {
   font-size: 5px; /* Adjust this value as needed */
@@ -129,6 +134,7 @@ body {
   border-radius: 5px;
   margin-bottom: 20px;
   padding: 10px;     
+  align-items: center;
 }
 
 .column {
