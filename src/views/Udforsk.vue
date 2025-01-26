@@ -71,25 +71,41 @@ export default {
         const response = await axios.get(url);
         this.newsfeedList = response.data;
         console.log(this.newsfeedList);
-        this.newsfeedList.forEach(async (newsfeed) => 
+        this.cardList = [];
+        // this.newsfeedList.forEach(async (newsfeed) => 
+        for (const newsfeed of this.newsfeedList)
         {
           if (newsfeed.companyUserId) {
             const url = baseUrlCompany + "/" + newsfeed.companyUserId;
             const companyUser = await axios.get(url);
             this.companyUser = companyUser.data;
-            this.cardList = this.newsfeedList.map(newsfeed => ({
+            this.cardList.push({
               categoryName: newsfeed.categoryName, 
-              title: newsfeed.newsfeedTitle, 
+              title: newsfeed.newsfeedTitle,                   
               description: newsfeed.newsfeedText, 
-              companyName: this.companyUser.companyName}));
-          } else {
-            console.error('Error: companyId is undefined for newsfeed:', newsfeed);
-          }
-        });
-      }
-      catch (error) {
-        console.error('Error fetching newsfeeds:', error);
-      }
+              companyName: this.companyUser.companyName                        
+                    });
+                  }
+                 else {
+                console.error('Error: companyId is undefined for newsfeed:', newsfeed);                
+                }
+              }    
+            } catch (error) {       
+            console.error('Error fetching newsfeeds:', error);       
+            }
+        //     this.cardList = this.newsfeedList.map(newsfeed => ({
+        //       categoryName: newsfeed.categoryName, 
+        //       title: newsfeed.newsfeedTitle, 
+        //       description: newsfeed.newsfeedText, 
+        //       companyName: this.companyUser.companyName}));
+        //   } else {
+        //     console.error('Error: companyId is undefined for newsfeed:', newsfeed);
+        //   }
+        // });
+      // }
+      // catch (error) {
+      //   console.error('Error fetching newsfeeds:', error);
+      // }
     },
     onSelected:function(event){
           this.searchQuery = event.target.value;
