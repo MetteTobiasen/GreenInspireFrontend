@@ -60,14 +60,16 @@ export default {
 } 
 
 .modal-overlay .modal-content {
-    width: 400px;
+    width: 450px;
     height: 500px;
-    background-color: white; 
-    padding: 20px;
+    /* background-color: white;  */
+    /* padding: 20px; */
+    margin-right: 20rem;
     border-radius: 3px;
     position: fixed;
     justify-content: center; 
-}  
+    display: flex;
+}   
 
 .indhold{
     
@@ -75,7 +77,7 @@ export default {
 .close-button {
     position: absolute; 
     top: 10px;
-    right: 10px;
+    right: -120px;
     background: none;
     border: none;
     font-size: 20px;
