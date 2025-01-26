@@ -16,11 +16,19 @@
                 :description="item.description" 
                 :companyName="item.companyName" 
                 :category="item.categoryName"
+                @click="openModal(item)"
             /> 
             </div>
         </div>
-    
     </div>
+    <Modal 
+        v-if="showModal" 
+        @close="showModal = false" 
+        :isVisible="true" 
+        :title="selectedCard.title" 
+        :description="selectedCard.description" 
+        :categoryName="selectedCard.categoryName" 
+        :companyName="selectedCard.companyName"/>
     </main>
 </template>
 
@@ -28,6 +36,7 @@
 
 import axios from 'axios';
 import SmallCard from '../components/SmallCard.vue';
+import Modal from '../components/Modal.vue';
 
 const baseUrlCategory = "https://localhost:7070/api/Category";
 const baseUrlNewsfeed = "https://localhost:7070/api/Newsfeed";
@@ -35,7 +44,8 @@ const baseUrlCompany = "https://localhost:7070/api/Company";
 
 export default {
     components: {
-        SmallCard
+        SmallCard,
+        Modal
     },
     created() { 
     this.getAllCategories();
@@ -48,7 +58,14 @@ export default {
             newsfeedList: [],
             cardList: [],
             companyUser: [],
-            chosenCategory: ''
+            chosenCategory: '',
+            showModal: false,
+            selectedCard: {
+              title: '',
+              description: '',
+              categoryName: '',
+              companyName: ''
+      }
         };
     },
     methods: { 
@@ -101,7 +118,11 @@ export default {
         onSelected:function(event){
           this.selectedCategory = event.target.value;
             this.getAllNewsfeeds();
-        }
+        },
+        openModal(card) {
+      this.selectedCard = card;
+      this.showModal = true;
+    }
     }  
 };
 </script>
