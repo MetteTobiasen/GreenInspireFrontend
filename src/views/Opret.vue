@@ -1,37 +1,38 @@
 <template>
 <h3>Contact Form</h3>
 <div class="column">
-  <form v-on:submit="submitForm"> 
+  <form v-on:submit.prevent="submitForm">
     <div class="overskrift">
       <h2>Opret opslag</h2>
     </div>
 
     <label for="companyId">Id</label>
-    <!-- <input type="number" id="companyId" name="companyId" placeholder="Firma id.."> -->
-    <select name="companyId" id="companyId" v-model="companyId">
-    <option value="" selected="selectedId">Vælg firma id</option>
+    <!-- <select name="companyName" id="virksomhed" v-model="companyIdForObject"> -->
+    <select name="companyName" id="virksomhed" v-model="companyName" @change="updateCompanyName">
+    <option value="" disabled>Vælg firma id</option>
     <option v-for="companyUser in companyUserList" :key="companyUser.id" :value="companyUser.id">
       {{ companyUser.companyName }}
     </option>
     </select>
     <label for="category">Kategori</label>
-    <!-- <input type="text" id="category" name="category" placeholder="Vælg kategori.."> -->
-    <select name="subject" id="subject" v-model="selectedCategory"> 
-    <option value="" selected="selectedCategory">Vælg kategori</option> 
+    <!-- <select name="categoryName" id="kategori" v-model="categoryIdForObject"> -->
+    <select name="categoryName" id="kategori" v-model="categoryName" @change="updateCategoryName">
+    <option value="" disabled selected>Vælg kategori</option> 
     <option v-for="category in categoryList" :key="category.id" :value="category.id"> 
       {{ category.categoryName }}
     </option>
     </select>
     
     <label for="titel">Titel</label>
-    <input class="titel" type="text" id="titel" name="title" placeholder="Titel på opslag..">
+    <input class="titel" type="text" id="titel" name="title" placeholder="Titel på opslag.." v-model="title" required>
 
     <label for="description">Beskrivelse</label>
-    <textarea id="description" name="description" placeholder="Skriv din beskrivelse her.." style="height:200px"></textarea>
+    <textarea id="description" name="description" placeholder="Skriv din beskrivelse her.." style="height:200px" v-model="description"></textarea>
 
-    <label for="img">Billede</label>
-    <input type="text" id="img" name="image" placeholder="Vælg billede..">
-    <input type="submit" value="Opret" @click.prevent="submitForm">
+    <!-- <label for="img">Billede</label>
+    <input type="text" id="img" name="image" placeholder="Vælg billede.." v-model="img"> -->
+    <input type="submit" value="Opret">
+    
   </form>
 </div>
 </template>
@@ -52,16 +53,21 @@ export default {
   },
     data() {
         return {
-            category: '',
             img: '',
             title: '',
             description: '',
-            companyId: '',
             companyUserList: [],  
             categoryList: [],
             selectedCategory: "",
             selectedId: '',
-            subject: ''
+            searchQuery: '',
+            value: '',
+            companyName: '',
+            categoryChosen: null,
+            categoryName: '',
+            categoryIdForObject: '',
+            companyIdForObject: '',
+            // Added searchQuery property
         };
     },
     methods:
@@ -109,32 +115,58 @@ export default {
                 console.error('Error fetching category id:', error);
                 throw error;
             }
-
         },
+        async getCompanyIdByName(name) {
+            try{
+                const url = baseUrl + "/" + "idByName" + "/" + name;
+                const response = await axios.get(url);
+                this.companyIdForObject = response.data;
+                console.log(response.data);
+            }
+            catch (error) {
+                console.error('Error fetching company id:', error);
+                throw error;
+            }
+        },
+        updateCompanyName(event) {
+            this.companyName = event.target.value;
+        },
+        updateCategoryName(event) {
+            this.categoryName = event.target.value;
+        },
+        
         async submitForm() {
-            let NewNewsfeed = {
-              newsfeed: {
-                newsfeedImage: null,
-                title: this.title,
-                description: this.description,
-                companyUserId: this.companyId
-              },
-              category: {
-                categoryId: "",
-                categoryName: this.selectedCategory
-              }
-            };
+            
+            if (!this.title || !this.description || !this.companyName || !this.categoryName) 
+            {
+              alert("Alle felter skal udfyldes!");
+              return;
+            }
+            
             try {
-                await this.getCategoryIdByName(this.selectedCategory);
-                this.category.categoryId = this.categoryIdForObject;
-                console.log('categoryId:', categoryIdForObject);
-                NewNewsfeed.category.categoryId = categoryId;
-                const response = await axios.post(baseUrlNewsfeed, NewNewsfeed);                    
+                await this.getCategoryIdByName(this.categoryName);
+                await this.getCompanyIdByName(this.companyName);
+                // if (!this.companyIdForObject && !this.categoryIdForObject) {
+                //     alert("Please select a valid company and category.");
+                //     return;
+                // }
+                const NewNewsfeed = {
+                    newsfeedId: 0,
+                    newsfeedImage: null,
+                    title: this.title,
+                    newsfeedText: this.description,
+                    newsfeedTimestamp: new Date(),
+                    companyUserId: this.companyIdForObject
+                };
+                console.log('category:', NewNewsfeed);
+                const url = baseUrlNewsfeed + "?categoryId=" + this.categoryIdForObject;
+                const response = await axios.post(url, NewNewsfeed);                    
                 console.log('Success:', response);                 
             }   
             catch (error) {
                 console.error('Error:', error);
-            }           
+                console.log('response', error.response);
+            }             
         }
     }
 };
@@ -178,6 +210,10 @@ input[type=submit] {
 
 input[type=submit]:hover {
   background-color: #5edbad;
+}
+
+button[type=submit]:hover{
+  background-color:#5edbad;
 }
 
 .column {

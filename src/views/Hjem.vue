@@ -21,7 +21,8 @@
           return {
             newsFeedList: [],
             cardList: [],
-            companyUser: []
+            companyUser: [],
+            searchQuery: ''
           };
         },
         methods: {

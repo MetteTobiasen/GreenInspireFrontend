@@ -1,9 +1,10 @@
 <template>
   <div class="sidenav">
     <div>
+      <router-link to="/hjem">
       <div class="logo"><img src="C:\Users\Tobia\OneDrive\Zealand\Hovedopgave\Logoer\logoForslag9.png" alt="logo" />
-            
         </div>
+      </router-link>
             <router-link class="button" to="/hjem">
                 <span class="material-icons">home</span>
                 <span class="text">Hjem</span>

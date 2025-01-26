@@ -120,10 +120,15 @@
     padding: 10px;
     margin-top: 10px;
   }
+
+  .card:hover {
+    cursor: pointer;
+    background-color: #f0f0f0;
+  }
     .readMore {      
-        margin-top: 10px;
-        color: rgb(76, 73, 73);
-        border: 1px solid rgb(216, 207, 207);
+      margin-top: 10px;
+      color: rgb(76, 73, 73);
+      /* border: 1px solid rgb(216, 207, 207); */
     }
   
   button {
