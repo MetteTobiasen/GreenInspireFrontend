@@ -75,20 +75,22 @@ img {
 }
 
 .title {
-  color: rgb(76, 73, 73);
+  color: rgb(96, 92, 92);
   border-bottom: 1px solid rgb(216, 207, 207);
   padding-bottom: 20px;
+  font-size: 15.5px
 }
 .company{
   margin-top: 10px;
   font-weight: bold;
-  color: rgb(76, 73, 73);
+  color: rgb(96, 92, 92);
+  font-size: 13px;
 }
 
 .category{
   margin-bottom: 15px;
-  color: rgb(76, 73, 73);
-  font-size: 13px;
+  color: rgb(97, 93, 93);
+  font-size: 12px;
 }
 
 .text {
